@@ -4,7 +4,7 @@
 
 このドキュメントは、BL販売分析マート（V_BIA_BL_SALE_MART）と関連テーブルとの関係を示すER図です。
 
-> **注記**: Mermaidの仕様制約により、ER図中のキー項目は「PK」と表記されていますが、本資料ではTeradataのPRIMARY INDEX（PI）を表します。
+> **注記**: Mermaidの仕様制約により、ER図中のキー項目は「"PI"」と表記されていますが、本資料ではTeradataのPRIMARY INDEX（PI）を表します。
 
 ## ビュー階層構造
 
@@ -42,8 +42,8 @@ erDiagram
 
     %% ベーステーブル
     RT_SALE_ANLY {
-        DECIMAL itgt_cust_id PK "統合顧客ID"
-        DECIMAL busn_cd PK "事業コード"
+        DECIMAL itgt_cust_id "PI" "統合顧客ID"
+        DECIMAL busn_cd "PI" "事業コード"
         DECIMAL cust_no "顧客番号"
         DECIMAL ord_no "受注番号"
         DECIMAL ord_line_no "受注行番号"
@@ -53,51 +53,51 @@ erDiagram
 
     %% ワークテーブル（代表）
     WK_SALE_ANLY {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
     }
 
     WK_RT_GODS {
-        DECIMAL busn_cd PK "事業コード"
-        VARCHAR exec_cd PK "実行コード"
-        INTEGER new_prm_gods PK "新プロモ商品"
+        DECIMAL busn_cd "PI" "事業コード"
+        VARCHAR exec_cd "PI" "実行コード"
+        INTEGER new_prm_gods "PI" "新プロモ商品"
     }
 
     WK_RT_MDIA {
-        DECIMAL busn_cd PK "事業コード"
-        VARCHAR exec_cd PK "実行コード"
+        DECIMAL busn_cd "PI" "事業コード"
+        VARCHAR exec_cd "PI" "実行コード"
     }
 
     WK_RT_EC_MMBR {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
     }
 
     WK_HANPU_DTLS {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
-        DECIMAL ord_no PK "受注番号"
-        DECIMAL ord_line_no PK "受注行番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
+        DECIMAL ord_no "PI" "受注番号"
+        DECIMAL ord_line_no "PI" "受注行番号"
     }
 
     WK_RT_PRID_DTLS {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
-        DECIMAL ord_no PK "受注番号"
-        DECIMAL ord_line_no PK "受注行番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
+        DECIMAL ord_no "PI" "受注番号"
+        DECIMAL ord_line_no "PI" "受注行番号"
     }
 
     ACS_ITGT_CUST_DTLS {
-        DECIMAL itgt_cust_id PK "統合顧客ID"
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
+        DECIMAL itgt_cust_id "PI" "統合顧客ID"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
     }
 
     V_COR_MM_STK {
-        DECIMAL busn_cd PK "事業コード"
-        VARCHAR gods_cd PK "商品コード"
-        DECIMAL gods_srno PK "商品連番"
-        DECIMAL yymm PK "年月"
+        DECIMAL busn_cd "PI" "事業コード"
+        VARCHAR gods_cd "PI" "商品コード"
+        DECIMAL gods_srno "PI" "商品連番"
+        DECIMAL yymm "PI" "年月"
         DECIMAL stk_qty "在庫数量"
     }
 
@@ -126,8 +126,8 @@ WK_SALE_ANLY系テーブルとその元となるTier2テーブルの関係を示
 erDiagram
     %% ベーステーブル
     RT_SALE_ANLY {
-        DECIMAL itgt_cust_id PK "統合顧客ID"
-        DECIMAL busn_cd PK "事業コード"
+        DECIMAL itgt_cust_id "PI" "統合顧客ID"
+        DECIMAL busn_cd "PI" "事業コード"
         DECIMAL cust_no "顧客番号"
         DECIMAL ord_no "受注番号"
         DECIMAL ord_line_no "受注行番号"
@@ -135,8 +135,8 @@ erDiagram
 
     %% 販売分析系ワークテーブル（Tier3）
     WK_SALE_ANLY {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
         DECIMAL ord_no "受注番号"
         DECIMAL ord_line_no "受注行番号"
         VARCHAR exec_cd "実行コード"
@@ -145,56 +145,56 @@ erDiagram
     }
 
     WK_SALE_ANLY_BB {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
         DECIMAL ord_no "受注番号"
         DECIMAL ord_line_no "受注行番号"
     }
 
     WK_SALE_ANLY_OB {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
         DECIMAL ord_no "受注番号"
         DECIMAL ord_line_no "受注行番号"
     }
 
     WK_SALE_ANLY_GB {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
         DECIMAL ord_no "受注番号"
         DECIMAL ord_line_no "受注行番号"
     }
 
     %% Tier2 販売分析系ソース
     V_COR_ORDR_HDR {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
-        DECIMAL ord_no PK "受注番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
+        DECIMAL ord_no "PI" "受注番号"
     }
 
     V_COR_ORDR_DTLS {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
-        DECIMAL ord_no PK "受注番号"
-        DECIMAL ord_line_no PK "受注行番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
+        DECIMAL ord_no "PI" "受注番号"
+        DECIMAL ord_line_no "PI" "受注行番号"
     }
 
     V_COR_REQ_HDR {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
-        DECIMAL ord_no PK "受注番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
+        DECIMAL ord_no "PI" "受注番号"
     }
 
     V_COR_REQ_DTLS {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
-        DECIMAL ord_no PK "受注番号"
-        DECIMAL ord_line_no PK "受注行番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
+        DECIMAL ord_no "PI" "受注番号"
+        DECIMAL ord_line_no "PI" "受注行番号"
     }
 
     V_COR_CUST_DEPO_HIST {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
     }
 
     %% RT_SALE_ANLYからワークテーブルへ
@@ -224,17 +224,17 @@ WK_RT_GODS（商品マスタワーク）とその元となるTier2テーブル�
 erDiagram
     %% ベーステーブル
     RT_SALE_ANLY {
-        DECIMAL itgt_cust_id PK "統合顧客ID"
-        DECIMAL busn_cd PK "事業コード"
+        DECIMAL itgt_cust_id "PI" "統合顧客ID"
+        DECIMAL busn_cd "PI" "事業コード"
         VARCHAR exec_cd "実行コード"
         INTEGER new_prm_gods "新プロモ商品"
     }
 
     %% マスタ系ワークテーブル（Tier3）
     WK_RT_GODS {
-        DECIMAL busn_cd PK "事業コード"
-        VARCHAR exec_cd PK "実行コード"
-        INTEGER new_prm_gods PK "新プロモ商品"
+        DECIMAL busn_cd "PI" "事業コード"
+        VARCHAR exec_cd "PI" "実行コード"
+        INTEGER new_prm_gods "PI" "新プロモ商品"
         VARCHAR gods_cd "商品コード"
         VARCHAR prm_gods "プロモ商品"
         DECIMAL gods_lrge_class_cd "商品大分類"
@@ -243,67 +243,67 @@ erDiagram
 
     %% Tier2 商品マスタ系ソース（代表）
     V_COR_EXCD_GODS {
-        DECIMAL busn_cd PK "事業コード"
-        VARCHAR exec_cd PK "実行コード"
+        DECIMAL busn_cd "PI" "事業コード"
+        VARCHAR exec_cd "PI" "実行コード"
         INTEGER new_prm_gods "新プロモ商品"
     }
 
     V_COR_PRM_GODS_S1_BBOB {
-        DECIMAL busn_cd PK "事業コード"
-        VARCHAR prm_cd PK "プロモーションコード"
+        DECIMAL busn_cd "PI" "事業コード"
+        VARCHAR prm_cd "PI" "プロモーションコード"
         INTEGER new_prm_gods "新プロモ商品"
         VARCHAR gods_cd "商品コード"
     }
 
     V_COR_PRM_GODS {
-        DECIMAL busn_cd PK "事業コード"
-        VARCHAR prm_cd PK "プロモーションコード"
+        DECIMAL busn_cd "PI" "事業コード"
+        VARCHAR prm_cd "PI" "プロモーションコード"
         INTEGER new_prm_gods "新プロモ商品"
         VARCHAR prm_gods "プロモ商品"
     }
 
     V_COR_GODS {
-        DECIMAL busn_cd PK "事業コード"
-        VARCHAR gods_cd PK "商品コード"
-        DECIMAL gods_srno PK "商品連番"
+        DECIMAL busn_cd "PI" "事業コード"
+        VARCHAR gods_cd "PI" "商品コード"
+        DECIMAL gods_srno "PI" "商品連番"
         VARCHAR gods_nm "商品名"
     }
 
     V_COR_GODS_ANLY {
-        DECIMAL busn_cd PK "事業コード"
-        VARCHAR gods_cd PK "商品コード"
-        DECIMAL gods_srno PK "商品連番"
+        DECIMAL busn_cd "PI" "事業コード"
+        VARCHAR gods_cd "PI" "商品コード"
+        DECIMAL gods_srno "PI" "商品連番"
         DECIMAL anly_prpy_id "分析属性ID"
         DECIMAL anly_prpy_cd "分析属性コード"
     }
 
     V_COR_GODS_S1_BBOB {
-        DECIMAL busn_cd PK "事業コード"
-        VARCHAR gods_cd PK "商品コード"
-        DECIMAL gods_srno PK "商品連番"
+        DECIMAL busn_cd "PI" "事業コード"
+        VARCHAR gods_cd "PI" "商品コード"
+        DECIMAL gods_srno "PI" "商品連番"
     }
 
     V_COR_GODS_S2_BB {
-        DECIMAL busn_cd PK "事業コード"
-        VARCHAR gods_cd PK "商品コード"
-        DECIMAL gods_srno PK "商品連番"
+        DECIMAL busn_cd "PI" "事業コード"
+        VARCHAR gods_cd "PI" "商品コード"
+        DECIMAL gods_srno "PI" "商品連番"
     }
 
     V_COR_OL_GODS_DTLS {
-        DECIMAL busn_cd PK "事業コード"
+        DECIMAL busn_cd "PI" "事業コード"
         INTEGER new_prm_gods "新プロモ商品"
         VARCHAR cata_no "カタログ番号"
         VARCHAR ec_gods_no "EC商品番号"
     }
 
     V_COR_OL_GODS {
-        DECIMAL busn_cd PK "事業コード"
-        VARCHAR cata_no PK "カタログ番号"
-        VARCHAR ec_gods_no PK "EC商品番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        VARCHAR cata_no "PI" "カタログ番号"
+        VARCHAR ec_gods_no "PI" "EC商品番号"
     }
 
     RT_APRL_SIZE {
-        VARCHAR size_cd PK "サイズコード"
+        VARCHAR size_cd "PI" "サイズコード"
         VARCHAR chng_size "変換サイズ"
     }
 
@@ -338,16 +338,16 @@ WK_RT_MDIA（媒体マスタワーク）とWK_RT_EC_MMBR（EC会員ワーク）�
 erDiagram
     %% ベーステーブル
     RT_SALE_ANLY {
-        DECIMAL itgt_cust_id PK "統合顧客ID"
-        DECIMAL busn_cd PK "事業コード"
+        DECIMAL itgt_cust_id "PI" "統合顧客ID"
+        DECIMAL busn_cd "PI" "事業コード"
         DECIMAL cust_no "顧客番号"
         VARCHAR exec_cd "実行コード"
     }
 
     %% マスタ系ワークテーブル（Tier3）- 媒体
     WK_RT_MDIA {
-        DECIMAL busn_cd PK "事業コード"
-        VARCHAR exec_cd PK "実行コード"
+        DECIMAL busn_cd "PI" "事業コード"
+        VARCHAR exec_cd "PI" "実行コード"
         DECIMAL mdia_cls "媒体種類"
         VARCHAR mdia_cd "媒体コード"
         VARCHAR mdia_nm_kanji "媒体名"
@@ -357,8 +357,8 @@ erDiagram
 
     %% EC系ワークテーブル（Tier3）
     WK_RT_EC_MMBR {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
         VARCHAR ec_mmbr_no "EC会員番号"
         VARCHAR web_mmbr_no "Web会員番号"
         DECIMAL ec_del_flg "EC退会フラグ"
@@ -369,52 +369,52 @@ erDiagram
 
     %% Tier2 媒体マスタ系ソース（MRT_WK_MDIA_100.sql INPUT）
     V_COR_EXCD {
-        DECIMAL busn_cd PK "事業コード"
-        VARCHAR exec_cd PK "実行コード"
+        DECIMAL busn_cd "PI" "事業コード"
+        VARCHAR exec_cd "PI" "実行コード"
         VARCHAR prm_cd "プロモーションコード"
         DATE pbsh_day "発行日"
         DECIMAL ol_dcrm "オンライン判別"
     }
 
     V_COR_PRM {
-        DECIMAL busn_cd PK "事業コード"
-        VARCHAR prm_cd PK "プロモーションコード"
+        DECIMAL busn_cd "PI" "事業コード"
+        VARCHAR prm_cd "PI" "プロモーションコード"
         VARCHAR mdia_cd "媒体コード"
         VARCHAR prm_name "プロモーション名"
         DATE ordr_dudt_day "受注期限日"
     }
 
     V_COR_MDIA {
-        DECIMAL busn_cd PK "事業コード"
-        VARCHAR mdia_cd PK "媒体コード"
+        DECIMAL busn_cd "PI" "事業コード"
+        VARCHAR mdia_cd "PI" "媒体コード"
         VARCHAR mdia_nm_kanji "媒体名"
         DECIMAL mdia_cls_comn "媒体種類_共通"
     }
 
     V_COR_PRM_S1_BBOB {
-        DECIMAL busn_cd PK "事業コード"
-        VARCHAR prm_cd PK "プロモーションコード"
+        DECIMAL busn_cd "PI" "事業コード"
+        VARCHAR prm_cd "PI" "プロモーションコード"
         DECIMAL pbsh_year "発行年"
         DECIMAL pbsh_sasn "発行シーズン"
     }
 
     V_COR_MDIA_S1_BBOB {
-        DECIMAL busn_cd PK "事業コード"
-        VARCHAR mdia_cd PK "媒体コード"
+        DECIMAL busn_cd "PI" "事業コード"
+        VARCHAR mdia_cd "PI" "媒体コード"
         DECIMAL mdia_cls "媒体種類"
     }
 
     %% Tier2 EC系ソース（MRT_WK_EC_100.sql INPUT）
     V_COR_CUST_WEB_PRPY {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
         VARCHAR web_mmbr_no "Web会員番号"
         DECIMAL del_flg "削除フラグ"
     }
 
     V_COR_MMBR_EC {
-        DECIMAL busn_cd PK "事業コード"
-        VARCHAR web_mmbr_no PK "Web会員番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        VARCHAR web_mmbr_no "PI" "Web会員番号"
         VARCHAR ec_mmbr_no "EC会員番号"
         DECIMAL del_flg "削除フラグ"
         VARCHAR pc_mail_adrs "PCメールアドレス"
@@ -451,8 +451,8 @@ WK_HANPU_DTLS（頒布会詳細ワーク）とWK_RT_PRID_DTLS（定期詳細ワ�
 erDiagram
     %% ベーステーブル
     RT_SALE_ANLY {
-        DECIMAL itgt_cust_id PK "統合顧客ID"
-        DECIMAL busn_cd PK "事業コード"
+        DECIMAL itgt_cust_id "PI" "統合顧客ID"
+        DECIMAL busn_cd "PI" "事業コード"
         DECIMAL cust_no "顧客番号"
         DECIMAL ord_no "受注番号"
         DECIMAL ord_line_no "受注行番号"
@@ -460,10 +460,10 @@ erDiagram
 
     %% 詳細系ワークテーブル（Tier3）
     WK_HANPU_DTLS {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
-        DECIMAL ord_no PK "受注番号"
-        DECIMAL ord_line_no PK "受注行番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
+        DECIMAL ord_no "PI" "受注番号"
+        DECIMAL ord_line_no "PI" "受注行番号"
         VARCHAR hanpukai_cd "頒布会コード"
         DECIMAL hanpu_start_yymm "頒布開始年月"
         DECIMAL hanpu_end_yymm "頒布終了年月"
@@ -471,10 +471,10 @@ erDiagram
     }
 
     WK_RT_PRID_DTLS {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
-        DECIMAL ord_no PK "受注番号"
-        DECIMAL ord_line_no PK "受注行番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
+        DECIMAL ord_no "PI" "受注番号"
+        DECIMAL ord_line_no "PI" "受注行番号"
         DECIMAL prid_ordr_no "定期受注番号"
         DECIMAL prid_cnd "定期状態"
         DECIMAL prid_irvl "配送間隔"
@@ -484,76 +484,76 @@ erDiagram
 
     %% Tier2 頒布会詳細系ソース（MRT_WK_HNP_100.sql INPUT）
     V_COR_ORDR_DTLS_S1_GB {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
-        DECIMAL ord_no PK "受注番号"
-        DECIMAL ord_line_no PK "受注行番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
+        DECIMAL ord_no "PI" "受注番号"
+        DECIMAL ord_line_no "PI" "受注行番号"
         VARCHAR hanpukai_cd "頒布会コード"
         DECIMAL sale_kbn "販売区分"
     }
 
     V_COR_ORDR_HDR_S1_GB {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
-        DECIMAL ord_no PK "受注番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
+        DECIMAL ord_no "PI" "受注番号"
         DECIMAL hanpu_start_yymm "頒布開始年月"
         DECIMAL hanpu_end_yymm "頒布終了年月"
         DATE last_sales_day "最終売上日"
     }
 
     V_COR_REQ_HDR {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
-        DECIMAL ord_no PK "受注番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
+        DECIMAL ord_no "PI" "受注番号"
         DATE shmt_fix_day "出荷確定日"
     }
 
     V_COR_REQ_DTLS {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
-        DECIMAL ord_no PK "受注番号"
-        DECIMAL ord_line_no PK "受注行番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
+        DECIMAL ord_no "PI" "受注番号"
+        DECIMAL ord_line_no "PI" "受注行番号"
     }
 
     V_COR_REQ_DTLS_S1_GB {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
-        DECIMAL ord_no PK "受注番号"
-        DECIMAL ord_line_no PK "受注行番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
+        DECIMAL ord_no "PI" "受注番号"
+        DECIMAL ord_line_no "PI" "受注行番号"
     }
 
     V_COR_ORDR_DTLS {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
-        DECIMAL ord_no PK "受注番号"
-        DECIMAL ord_line_no PK "受注行番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
+        DECIMAL ord_no "PI" "受注番号"
+        DECIMAL ord_line_no "PI" "受注行番号"
         INTEGER new_prm_gods "新プロモ商品"
         DATE stat_chng_day "ステータス変更日"
     }
 
     %% Tier2 定期詳細系ソース（MRT_WK_PRID_100.sql INPUT）
     V_COR_PRID_ORDR_INFO {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
-        DECIMAL prid_ordr_no PK "定期受注番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
+        DECIMAL prid_ordr_no "PI" "定期受注番号"
         DECIMAL prid_cnd "定期状態"
         DECIMAL dlvy_irvl "配送間隔"
         DECIMAL days_irvl "日数間隔"
     }
 
     V_COR_ORDR_DTLS_S2_OB {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
-        DECIMAL ord_no PK "受注番号"
-        DECIMAL ord_line_no PK "受注行番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
+        DECIMAL ord_no "PI" "受注番号"
+        DECIMAL ord_line_no "PI" "受注行番号"
         DECIMAL prid_sale_flg "定期販売フラグ"
         DATE ordr_day "受注日"
     }
 
     V_COR_ORDR_HDR_S2_OB {
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
-        DECIMAL ord_no PK "受注番号"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
+        DECIMAL ord_no "PI" "受注番号"
         DECIMAL prid_ordr_no "定期受注番号"
     }
 
@@ -584,8 +584,8 @@ ACS_ITGT_CUST_DTLS（統合顧客詳細）、CALENDAR（カレンダー）、V_C
 erDiagram
     %% ベーステーブル
     RT_SALE_ANLY {
-        DECIMAL itgt_cust_id PK "統合顧客ID"
-        DECIMAL busn_cd PK "事業コード"
+        DECIMAL itgt_cust_id "PI" "統合顧客ID"
+        DECIMAL busn_cd "PI" "事業コード"
         DECIMAL cust_no "顧客番号"
         VARCHAR gods_cd "商品コード"
         DECIMAL gods_srno "商品連番"
@@ -595,14 +595,14 @@ erDiagram
 
     %% 顧客系テーブル
     ACS_ITGT_CUST_DTLS {
-        DECIMAL itgt_cust_id PK "統合顧客ID"
-        DECIMAL busn_cd PK "事業コード"
-        DECIMAL cust_no PK "顧客番号"
+        DECIMAL itgt_cust_id "PI" "統合顧客ID"
+        DECIMAL busn_cd "PI" "事業コード"
+        DECIMAL cust_no "PI" "顧客番号"
     }
 
     %% カレンダーテーブル
     CALENDAR {
-        DATE calendar_date PK "日付"
+        DATE calendar_date "PI" "日付"
         INTEGER year "年"
         INTEGER month "月"
         INTEGER day "日"
@@ -611,16 +611,16 @@ erDiagram
 
     %% Tier2 マスタビュー
     V_COR_PRM_GODS {
-        DECIMAL busn_cd PK "事業コード"
-        INTEGER new_prm_gods PK "新プロモ商品"
+        DECIMAL busn_cd "PI" "事業コード"
+        INTEGER new_prm_gods "PI" "新プロモ商品"
         VARCHAR prm_gods_name "プロモ商品名"
     }
 
     V_COR_MM_STK {
-        DECIMAL busn_cd PK "事業コード"
-        VARCHAR gods_cd PK "商品コード"
-        DECIMAL gods_srno PK "商品連番"
-        DECIMAL yymm PK "年月"
+        DECIMAL busn_cd "PI" "事業コード"
+        VARCHAR gods_cd "PI" "商品コード"
+        DECIMAL gods_srno "PI" "商品連番"
+        DECIMAL yymm "PI" "年月"
         DECIMAL stk_qty "在庫数量"
     }
 
